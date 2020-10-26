@@ -12,6 +12,7 @@
   <% @user.events.each do |e| %>
     <tr>
       <td> Event name: <%= e.name %></td>
+      <td><%= link_to 'Show', e %></td>
     </tr><br />
   <% end %>
 
