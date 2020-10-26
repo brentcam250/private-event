@@ -5,5 +5,18 @@
   <%= @user.name %>
 </p>
 
+<p>
+  <strong><%= @user.name%>'s events</strong>
+  <br /> 
+  
+  <% @user.events.each do |e| %>
+    <tr>
+      <td> Event name: <%= e.name %></td>
+    </tr><br />
+  <% end %>
+
+    
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
