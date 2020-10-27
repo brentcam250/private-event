@@ -61,16 +61,18 @@ class UsersController < ApplicationController
     end
   end
 
-  def sign_in 
-    if(params[:id])
-      @user = User.find(params[:id])
-      session[:current_user] = {"current_user_name" => @user.name, "current_user_id" => @user.id}
-    else
-      @user = User.first
-    end
+  # def sign_in 
+  #   if(params[:id])
+  #     @user = User.find(params[:id])
+  #     # session[:current_user] = {"current_user_name" => @user.name, "current_user_id" => @user.id}
+  #     session[:current_user] = @user.name
+
+  #   else
+  #     @user = User.first
+  #   end
 
     
-  end
+  # end
 
   def old_sign_in 
     unless(session[:current_user_id].nil?)

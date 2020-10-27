@@ -5,6 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <% if session[:current_user] %>
+      <p>Currently signed in as: <%=session[:current_user]%></p>
+    <% else %>
+      <p>Not signed in </p>
+    <% end %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
