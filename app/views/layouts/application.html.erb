@@ -7,7 +7,7 @@
 
     <% unless session[:current_user].nil? %>
       <p>Currently signed in as: <%=session[:current_user]%></p>
-      <p>Sign out <%= link_to 'Sign Out', 'sessions/destroy' %></p>
+      <p>Sign out <%= link_to 'Sign Out', "sessions/destroy" %></p>
       <p><%= link_to 'destroy', method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
 
