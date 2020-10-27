@@ -74,16 +74,16 @@ class UsersController < ApplicationController
     
   # end
 
-  def old_sign_in 
-    unless(session[:current_user_id].nil?)
-      @user = User.find(session[:current_user_id])
-    else
-      @user = User.last
-      session[:current_user] = {"current_user_name" => @user.name, "current_user_id" => @user.id}
-    end
+  # def old_sign_in 
+  #   unless(session[:current_user_id].nil?)
+  #     @user = User.find(session[:current_user_id])
+  #   else
+  #     @user = User.last
+  #     session[:current_user] = {"current_user_name" => @user.name, "current_user_id" => @user.id}
+  #   end
 
 
-  end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

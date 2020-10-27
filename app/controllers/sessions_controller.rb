@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
     def new
+
         @user = User.first
         user = @user
         unless (user.nil?)
@@ -10,7 +11,7 @@ class SessionsController < ApplicationController
         else
 
         end
-        # redirect_to 'events#new' event_path
+        redirect_to '/events/new'
     end
 
     def create 
@@ -19,8 +20,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session[:current_user_id] = nil
-        session[:current_user_name] = nil
+        reset_session
     end
 
 end

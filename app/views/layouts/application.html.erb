@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <% if session[:current_user] %>
+    <% unless session[:current_user].nil? %>
       <p>Currently signed in as: <%=session[:current_user]%></p>
     <% else %>
       <p>Not signed in </p>
