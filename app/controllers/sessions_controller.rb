@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
 
     def new
-
-        @user = User.first
-        user = @user
+        reset_session
+        @user = User.find(params[:id])
+        
         unless (user.nil?)
             session[:current_user_id] = user.id
             session[:current_user_name] = user.name
