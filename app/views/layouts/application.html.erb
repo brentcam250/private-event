@@ -4,13 +4,20 @@
     <title>PrivateEvents</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <% unless session[:current_user].nil? %>
-      <p>Currently signed in as: <%=session[:current_user_name]%></p>
-      
-    <% else %>
-      <p>Not signed in </p>
-    <% end %>
+    <div class = 'navbar' >
+      <span>
+        <% unless session[:current_user].nil? %>
+          <p>Currently signed in as: <%=session[:current_user_name]%></p>
+          
+        <% else %>
+          <p>Not signed in </p>
+        <% end %>
+      </span>
+      <span class = 'navbar-links'>
+        <td><%= link_to 'Users', users_path %></td>
+        <td><%= link_to 'Events', events_path %></td>
+      </span>
+    </div>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>

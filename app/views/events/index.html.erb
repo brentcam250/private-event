@@ -5,17 +5,43 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Future Events</th>
       <th colspan="3"></th>
     </tr>
     
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
+    <% Event.future.each do |event| %>
       <tr>
         <td><%= event.name %></td>
-        <td><%= event.creator.name %></td>
+        <td>Creator: <%= event.creator.name %></td>
+        <td>Time: <%= event.event_time %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Past Events</th>
+      <th colspan="3"></th>
+    </tr>
+    
+  </thead>
+
+  <tbody>
+    <% Event.past.each do |event| %>
+
+      <tr>
+        <td><%= event.name %></td>
+        <td>Creator: <%= event.creator.name %></td>
+        <td>Time: <%= event.event_time %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
