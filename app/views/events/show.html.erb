@@ -6,7 +6,19 @@
 </p>
 <p>
   <strong>Creator Name:</strong>
-  <%= @event.user.name %>
+  <%= @event.creator.name %>
+</p>
+
+<p>
+  <% if @event.attendees.length == 0 %>
+    No one attending yet =(
+  <% else %>
+    <strong>Attendees:</strong>
+    <% @event.attendees.each do |attendee| %>
+      <p><%= attendee.name %> </p>
+
+    <% end %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

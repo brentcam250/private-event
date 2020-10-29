@@ -6,10 +6,24 @@
 </p>
 
 <p>
-  <strong><%= @user.name%>'s events</strong>
+  <strong><%= @user.name%>'s created events</strong>
   <br /> 
   
-  <% @user.events.each do |e| %>
+  <% @user.created_events.each do |e| %>
+    <tr>
+      <td> Event name: <%= e.name %></td>
+      <td><%= link_to 'Show', e %></td>
+    </tr><br />
+  <% end %>
+
+    
+</p>
+
+<p>
+  <strong><%= @user.name%>'s attended events</strong>
+  <br /> 
+  
+  <% @user.attended_events.each do |e| %>
     <tr>
       <td> Event name: <%= e.name %></td>
       <td><%= link_to 'Show', e %></td>
