@@ -26,6 +26,7 @@ class EventsController < ApplicationController
   def create
     user = User.find(session[:current_user_id])
     @event = user.created_events.build(event_params)
+    @event.event_time = DateTime.now
     # @event = Event.new(event_params)
     # @event.user = User.find(session[:current_user_id])
 
