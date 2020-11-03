@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event Name:</strong>
+  <%= @invitation.attended_event.name %>
+</p>
+<p>
+  <strong>Invitee Name:</strong>
+  <%= @invitation.attendee.name %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+<%= link_to 'Back', invitations_path %>

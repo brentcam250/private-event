@@ -4,10 +4,17 @@ class InvitationsController < ApplicationController
         @invitation = Invitation.new
     end
 
+ 
+    # GET /invitations/1
+    # GET /invitations/1.json
+    def edit
+
+    end
+
 
     def create
         event = Event.find(1)
-        @invitation = invitation.invitations.build(invitation_params)
+        @invitation = event.invitations.build(invitation_params)
         # @invitation.invitation_time = DateTime.now
         # @invitation = invitation.new(invitation_params)
         # @invitation.user = User.find(session[:current_user_id])
@@ -23,4 +30,9 @@ class InvitationsController < ApplicationController
           end
         end
     end
+
+    def destroy
+
+    end
+
 end
