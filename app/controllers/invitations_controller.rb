@@ -8,7 +8,12 @@ class InvitationsController < ApplicationController
     # GET /invitations/1
     # GET /invitations/1.json
     def edit
-
+      @event = Event.find(params[:id])
+      unless (@event.nil?)
+        @invitation = @event.invitations.build
+      end
+    
+      # redirect_to "/events/#{params[:id]}"
     end
 
 
