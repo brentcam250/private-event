@@ -11,6 +11,7 @@ class InvitationsController < ApplicationController
       @event = Event.find(params[:id])
       unless (@event.nil?)
         @invitation = @event.invitations.build
+        @invitation.attendee_id = params[:attendee_id]
       end
     
       # redirect_to "/events/#{params[:id]}"
@@ -18,8 +19,8 @@ class InvitationsController < ApplicationController
 
 
     def create
-        event = Event.find(1)
-        @invitation = event.invitations.build(invitation_params)
+        @event = Event.find(params[:id])
+        @invitation = event.invitations.build
         # @invitation.invitation_time = DateTime.now
         # @invitation = invitation.new(invitation_params)
         # @invitation.user = User.find(session[:current_user_id])
