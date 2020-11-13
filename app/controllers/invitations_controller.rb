@@ -1,4 +1,6 @@
 class InvitationsController < ApplicationController
+    before_action :set_event, only: [ :edit, :create ]
+  
 
     def new
         @invitation = Invitation.new
@@ -8,6 +10,7 @@ class InvitationsController < ApplicationController
     # GET /invitations/1
     # GET /invitations/1.json
     def edit
+      # puts "params:  #{params} "
       @event = Event.find(params[:id])
       unless (@event.nil?)
         @invitation = @event.invitations.build
@@ -19,6 +22,9 @@ class InvitationsController < ApplicationController
 
 
     def create
+        #not sure if params hash has the actual event id in here... likely need to fix view to pass it properyl
+        # puts "params:  #{params} "
+
         @event = Event.find(params[:id])
         @invitation = event.invitations.build
         # @invitation.invitation_time = DateTime.now
@@ -41,4 +47,15 @@ class InvitationsController < ApplicationController
 
     end
 
+
+    private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_event
+      @event = Event.find(params[:event_id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def invitation_params
+      params.require(:event).permit(:id)
+    end
 end
